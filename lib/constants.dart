@@ -1,8 +1,22 @@
-import 'package:abmart_uranus_academy/UI/Onbaording/onBoarding.dart';
 import 'package:abmart_uranus_academy/UI/SplashScreen/splash2.dart';
 import 'package:flutter/material.dart';
 
+import 'UI/Onbaording/onboarding_screen.dart';
 import 'UI/SplashScreen/splash3.dart';
+
+///Constant logo
+String kLogoImage='asset/images/VectorCart.png';
+
+///colors
+Color kBrandColor = const Color(0xffFF8819);
+Color kShadowsColor = const Color(0xffBDBDBD);
+Color kGreyColor = const Color(0xffF2F2F2);
+
+
+
+Color kTextFieldBorderColor = const Color(0xffE0E0E0);
+Color kBottomSelectedColor = const Color(0xffFF8819);
+Color kBottomUnSelectedColor = const Color(0xffBDBDBD);
 
 ///Bold fonts
 TextStyle kHeading1 = const TextStyle(
@@ -76,6 +90,24 @@ TextStyle kSmallTextRegular = const TextStyle(
   fontWeight: FontWeight.w500,
 );
 
+TextStyle kVerySmallTextUnSelectedRegular = TextStyle(
+  fontSize: 12,
+  fontWeight: FontWeight.w700,
+  color: kBottomUnSelectedColor
+);
+
+TextStyle kVerySmallTextSelectedRegular = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    color: kBottomSelectedColor
+);
+
+TextStyle kVeryVerySmallTextSelectedRegular = const TextStyle(
+    fontSize: 8,
+    fontWeight: FontWeight.w700,
+    color: Colors.white70
+);
+
 ///Splash CreateRoute
 Route _createRoute(Widget pageMaterial) {
   return PageRouteBuilder(
@@ -97,6 +129,6 @@ Route _createRoute(Widget pageMaterial) {
 
 Route kSplash2 =_createRoute(const Splash2());
 Route kSplash3 =_createRoute(const Splash3());
-Route kOnboarding =_createRoute(OnBoardingScreen());
+Route kOnboarding =_createRoute(const OnboardingScreen());
 
 

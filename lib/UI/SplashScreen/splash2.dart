@@ -39,7 +39,7 @@ class _Splash2State extends State<Splash2> {
   }
   @override
   Widget build(BuildContext context) {
-    String image = 'asset/images/VectorCart.png';
+    String image = kLogoImage;
     String text= 'Abmart';
     return Scaffold(
       body: Container(
@@ -48,7 +48,7 @@ class _Splash2State extends State<Splash2> {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('asset/images/splash_background.png'),
-                fit: BoxFit.cover
+                fit: BoxFit.fill
             )
         ),
         child: Column(

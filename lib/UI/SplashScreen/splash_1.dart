@@ -29,7 +29,7 @@ class _Splash1State extends State<Splash1> {
   }
   @override
   Widget build(BuildContext context) {
-    String image='asset/images/VectorCart.png';
+    String image=kLogoImage;
 
     return Scaffold(
       body: Container(
@@ -38,7 +38,7 @@ class _Splash1State extends State<Splash1> {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('asset/images/splash_background.png'),
-            fit: BoxFit.cover
+            fit: BoxFit.fill
           )
         ),
         child: Row(
