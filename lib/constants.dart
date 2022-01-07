@@ -11,9 +11,7 @@ String kLogoImage='asset/images/VectorCart.png';
 Color kBrandColor = const Color(0xffFF8819);
 Color kShadowsColor = const Color(0xffBDBDBD);
 Color kGreyColor = const Color(0xffF2F2F2);
-
-
-
+Color kGreyColor2 = const Color(0xffF7F7F7);
 Color kTextFieldBorderColor = const Color(0xffE0E0E0);
 Color kBottomSelectedColor = const Color(0xffFF8819);
 Color kBottomUnSelectedColor = const Color(0xffBDBDBD);
@@ -98,6 +96,12 @@ TextStyle kVerySmallTextUnSelectedRegular = TextStyle(
 
 TextStyle kVerySmallTextSelectedRegular = TextStyle(
     fontSize: 12,
+    fontWeight: FontWeight.w700,
+    color: kBottomSelectedColor
+);
+
+TextStyle kVeryLittleSmallTextSelectedRegular = TextStyle(
+    fontSize: 10,
     fontWeight: FontWeight.w700,
     color: kBottomSelectedColor
 );
