@@ -61,6 +61,29 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     );
   }
 
+  Widget _buildCardNoExpDate(String title, String value){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title,style: kSmallTextRegular.copyWith(color: Colors.grey),),
+        const SizedBox(height: 10,),
+        Container(
+          padding: const EdgeInsets.only(left: 15),
+          alignment: Alignment.centerLeft,
+          height: 55,
+          width: MediaQuery.of(context).size.width *0.442,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: kGreyColor
+          ),
+          child: Text(
+            value,style: kSmallTextRegular,
+          ),
+        )
+      ],
+    );
+  }
+
   Widget _buildPaymentOption(){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,11 +126,33 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               ),
             ],
           ),
+        ),
+        const SizedBox(height: 15,),
+        Text('Card number',style: kSmallTextRegular.copyWith(color: Colors.grey),),
+        const SizedBox(height: 8,),
+        Container(
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.only(left: 15),
+          height: 55,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: kGreyColor
+          ),
+          child: Text('1234   5678   5789   2345',style: kSmallTextRegular,),
+        ),
+        const SizedBox(height: 10,),
+        Row(
+          children: [
+            _buildCardNoExpDate('Expiry Date', '05/23'),
+            const SizedBox(width: 10,),
+            _buildCardNoExpDate('CVV', '***')
+          ],
         )
+
       ],
     );
   }
-
 
 
 
@@ -156,6 +201,35 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
        _buildDeliveryLocation(),
        const SizedBox(height: 30,),
        _buildPaymentOption(),
+       const SizedBox(height: 30,),
+       Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         children: [
+           Column(
+             crossAxisAlignment: CrossAxisAlignment.start,
+             children: [
+               Text('Pay on delivery',style: kSmallTextRegular,),
+               Text('(Currently not available due to COVID)',style: kSmallTextRegular)
+             ],
+           ),
+           const Icon(Icons.toggle_on_rounded,size: 50,color: Colors.grey,)
+         ],
+       ),
+       const SizedBox(height: 70,),
+       Container(
+         width: double.infinity,
+         decoration: BoxDecoration(
+           borderRadius: BorderRadius.circular(8),
+           color: kBrandColor,
+         ),
+         child: MaterialButton(
+             height: 50,
+             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>const CheckoutScreen()));},
+             child:
+             Text('Pay \$12,100.00',style: kNormalTextRegular.copyWith(color: Colors.white),)
+         ),
+       ),
+       const SizedBox(height: 30,),
 
      ],
     ),),
