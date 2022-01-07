@@ -1,3 +1,4 @@
+import 'package:abmart_uranus_academy/UI/cart/order_confirmation.dart';
 import 'package:abmart_uranus_academy/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -224,7 +225,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
          ),
          child: MaterialButton(
              height: 50,
-             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>const CheckoutScreen()));},
+             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>const OrderConfirmation()));},
              child:
              Text('Pay \$12,100.00',style: kNormalTextRegular.copyWith(color: Colors.white),)
          ),

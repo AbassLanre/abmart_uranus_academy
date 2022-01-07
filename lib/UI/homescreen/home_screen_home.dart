@@ -1,4 +1,5 @@
 import 'package:abmart_uranus_academy/UI/Details/details.dart';
+import 'package:abmart_uranus_academy/UI/cart/empty_cart.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -13,11 +14,24 @@ class HomeScreenHome extends StatefulWidget {
 
 class _HomeScreenHomeState extends State<HomeScreenHome> {
 
-  Widget _buildTodaysDeal(){
+  List<String> products =[
+    'asset/images/indomie.png',
+    'asset/images/lux.png',
+    'asset/images/pot.png',
+    'asset/images/facemasks.png',
+    'asset/images/sanitizer.png',
+    'asset/images/thermometer.png',
+    'asset/images/tissue.png',
+    'asset/images/malt.png',
+    'asset/images/oil.png',
+    'asset/images/vintage.png',
+
+  ];
+  Widget _buildTodaysDeal(String product){
     double height =MediaQuery.of(context).size.height;
     double width =MediaQuery.of(context).size.width;
     return GestureDetector(
-      onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>DetailsScreen()));},
+      onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=>DetailsScreen(product: product,)));},
       child: Column(
         children: [
           Container(
@@ -41,9 +55,9 @@ class _HomeScreenHomeState extends State<HomeScreenHome> {
                         color: kGreyColor,
                       ),
                       child: Hero(
-                        tag: 'asset/images/indomie.png',
+                        tag: product,
                         child: Image.asset(
-                          'asset/images/indomie.png',
+                          product,
                         height: height*0.118,
                           width: width*0.273,
                         ),
@@ -83,7 +97,7 @@ class _HomeScreenHomeState extends State<HomeScreenHome> {
       ),
     );
   }
-  Widget _buildCovidEssentials(){
+  Widget _buildCovidEssentials(String product){
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Stack(
@@ -99,7 +113,7 @@ class _HomeScreenHomeState extends State<HomeScreenHome> {
             color: kGreyColor,
           ),
           child: Image.asset(
-            'asset/images/indomie.png',
+            product,
             height: height*0.118,
             width: width*0.273,
           ),
@@ -146,7 +160,7 @@ class _HomeScreenHomeState extends State<HomeScreenHome> {
       ],
     );
   }
-  Widget _buildNewInStore(){
+  Widget _buildNewInStore(String product){
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Stack(
@@ -162,7 +176,7 @@ class _HomeScreenHomeState extends State<HomeScreenHome> {
             color: kGreyColor,
           ),
           child: Image.asset(
-            'asset/images/indomie.png',
+            product,
             height: height*0.118,
             width: width*0.273,
           ),
@@ -242,11 +256,14 @@ class _HomeScreenHomeState extends State<HomeScreenHome> {
                     )
                   ],
                 ),
-                Image.asset(
-                  kLogoImage,
-                  height: 27,
-                  width: 27,
-                  color: Colors.black,
+                GestureDetector(
+                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: (_)=> const EmptyCart()));},
+                  child: Image.asset(
+                    kLogoImage,
+                    height: 27,
+                    width: 27,
+                    color: Colors.black,
+                  ),
                 ),
               ],
             ),
@@ -364,7 +381,7 @@ class _HomeScreenHomeState extends State<HomeScreenHome> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 4,
                   itemBuilder: (BuildContext context,int index){
-                return _buildTodaysDeal();
+                return _buildTodaysDeal(products[index]);
               }, separatorBuilder: (BuildContext context, int index) { return const SizedBox(width: 10,); },),
             ),
             const SizedBox(height: 10,),
@@ -387,7 +404,7 @@ class _HomeScreenHomeState extends State<HomeScreenHome> {
                   crossAxisSpacing: 10,
                 ),
                 itemBuilder: (context, index){
-                  return _buildCovidEssentials();
+                  return _buildCovidEssentials(products[index]);
                 }),
             const SizedBox(height: 10,),
             Row(
@@ -409,7 +426,7 @@ class _HomeScreenHomeState extends State<HomeScreenHome> {
                   crossAxisSpacing: 10,
                 ),
                 itemBuilder: (context, index){
-                  return _buildNewInStore();
+                  return _buildNewInStore(products[index]);
                 }),
 
 

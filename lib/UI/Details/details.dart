@@ -3,7 +3,8 @@ import 'package:abmart_uranus_academy/constants.dart';
 import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatefulWidget {
-  const DetailsScreen({Key? key}) : super(key: key);
+  final String product;
+  const DetailsScreen({Key? key, required this.product}) : super(key: key);
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -19,7 +20,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8), color: kGreyColor2),
       child: Image.asset(
-        'asset/images/indomie.png',
+        widget.product,
         fit: BoxFit.contain,
       ),
     );
@@ -108,7 +109,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       borderRadius: BorderRadius.circular(8),
                       color: kGreyColor2),
                   child: Image.asset(
-                    'asset/images/indomie.png',
+                    widget.product,
                     height: height * 0.228,
                     width: width * 0.583,
                     fit: BoxFit.contain,
@@ -157,7 +158,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               height: 8,
             ),
             Text(
-              'Portable Hand Thermometer',
+              'Indomie Onion Chicken',
               style: kLargeTextBold.copyWith(color: Colors.black),
             ),
             const SizedBox(
